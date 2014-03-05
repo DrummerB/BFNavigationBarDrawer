@@ -1,6 +1,10 @@
 # BFNavigationBarDrawer
-<br>
-![Imgur](http://i.imgur.com/DjzbAXA.png)
+
+
+| *With* automatic scroll view adjustment | *Without* scroll view adjustment |
+| ------------- | -----|
+| ![Imgur](http://i.imgur.com/0Jpwbr9.gif) | ![Imgur](http://i.imgur.com/JmXZEAi.gif) |
+
 
 Summary
 -------
