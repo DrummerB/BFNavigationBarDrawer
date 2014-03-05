@@ -6,8 +6,14 @@
 //  Copyright (c) 2014 Balazs Faludi. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface BFNavigationBarDrawer : NSObject
+@interface BFNavigationBarDrawer : UIToolbar
+
+@property (nonatomic, readonly, getter=isVisible) BOOL visible;
+@property (nonatomic) UIScrollView *scrollView;
+
+- (void)showFromNavigationBar:(UINavigationBar *)bar animated:(BOOL)animated;
+- (void)hideAnimated:(BOOL)animated;
 
 @end

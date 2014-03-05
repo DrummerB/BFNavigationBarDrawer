@@ -8,18 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		ECC678A118C64CF500016A49 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECC678A018C64CF500016A49 /* Foundation.framework */; };
-		ECC678A618C64CF500016A49 /* BFNavigationBarDrawer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECC678A518C64CF500016A49 /* BFNavigationBarDrawer.h */; };
-		ECC678A818C64CF500016A49 /* BFNavigationBarDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC678A718C64CF500016A49 /* BFNavigationBarDrawer.m */; };
-		ECC678AF18C64CF500016A49 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECC678AE18C64CF500016A49 /* XCTest.framework */; };
-		ECC678B018C64CF500016A49 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECC678A018C64CF500016A49 /* Foundation.framework */; };
-		ECC678B218C64CF500016A49 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECC678B118C64CF500016A49 /* UIKit.framework */; };
-		ECC678B518C64CF500016A49 /* libBFNavigationBarDrawer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECC6789D18C64CF500016A49 /* libBFNavigationBarDrawer.a */; };
-		ECC678BB18C64CF500016A49 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECC678B918C64CF500016A49 /* InfoPlist.strings */; };
-		ECC678BD18C64CF500016A49 /* BFNavigationBarDrawerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC678BC18C64CF500016A49 /* BFNavigationBarDrawerTests.m */; };
+		ECC678CB18C64D0600016A49 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECC678A018C64CF500016A49 /* Foundation.framework */; };
+		ECC678CD18C64D0600016A49 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECC678CC18C64D0600016A49 /* CoreGraphics.framework */; };
+		ECC678CE18C64D0600016A49 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECC678B118C64CF500016A49 /* UIKit.framework */; };
+		ECC678D418C64D0600016A49 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECC678D218C64D0600016A49 /* InfoPlist.strings */; };
+		ECC678D618C64D0600016A49 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC678D518C64D0600016A49 /* main.m */; };
+		ECC678DA18C64D0600016A49 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC678D918C64D0600016A49 /* AppDelegate.m */; };
+		ECC678DD18C64D0600016A49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECC678DB18C64D0600016A49 /* Main.storyboard */; };
+		ECC678E018C64D0600016A49 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC678DF18C64D0600016A49 /* MasterViewController.m */; };
+		ECC678E318C64D0600016A49 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC678E218C64D0600016A49 /* DetailViewController.m */; };
+		ECC678E518C64D0600016A49 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECC678E418C64D0600016A49 /* Images.xcassets */; };
+		ECC6790018C64D8300016A49 /* BFNavigationBarDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC678FF18C64D8300016A49 /* BFNavigationBarDrawer.m */; };
+		ECC6790318C6512E00016A49 /* libBFNavigationBarDrawer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECC6789D18C64CF500016A49 /* libBFNavigationBarDrawer.a */; };
+		ECC6790718C653CF00016A49 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECC6790618C653CF00016A49 /* CFNetwork.framework */; };
+		ECC6790918C653D400016A49 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECC6790818C653D400016A49 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		ECC678B318C64CF500016A49 /* PBXContainerItemProxy */ = {
+		ECC6790118C6512A00016A49 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = ECC6789518C64CF500016A49 /* Project object */;
 			proxyType = 1;
@@ -35,7 +41,6 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				ECC678A618C64CF500016A49 /* BFNavigationBarDrawer.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,14 +50,27 @@
 		ECC6789D18C64CF500016A49 /* libBFNavigationBarDrawer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBFNavigationBarDrawer.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECC678A018C64CF500016A49 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ECC678A418C64CF500016A49 /* BFNavigationBarDrawer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BFNavigationBarDrawer-Prefix.pch"; sourceTree = "<group>"; };
-		ECC678A518C64CF500016A49 /* BFNavigationBarDrawer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BFNavigationBarDrawer.h; sourceTree = "<group>"; };
-		ECC678A718C64CF500016A49 /* BFNavigationBarDrawer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BFNavigationBarDrawer.m; sourceTree = "<group>"; };
-		ECC678AD18C64CF500016A49 /* BFNavigationBarDrawerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BFNavigationBarDrawerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECC678AE18C64CF500016A49 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		ECC678B118C64CF500016A49 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		ECC678B818C64CF500016A49 /* BFNavigationBarDrawerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BFNavigationBarDrawerTests-Info.plist"; sourceTree = "<group>"; };
-		ECC678BA18C64CF500016A49 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		ECC678BC18C64CF500016A49 /* BFNavigationBarDrawerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BFNavigationBarDrawerTests.m; sourceTree = "<group>"; };
+		ECC678CA18C64D0600016A49 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECC678CC18C64D0600016A49 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		ECC678D118C64D0600016A49 /* Demo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Demo-Info.plist"; sourceTree = "<group>"; };
+		ECC678D318C64D0600016A49 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ECC678D518C64D0600016A49 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		ECC678D718C64D0600016A49 /* Demo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Demo-Prefix.pch"; sourceTree = "<group>"; };
+		ECC678D818C64D0600016A49 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		ECC678D918C64D0600016A49 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		ECC678DC18C64D0600016A49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		ECC678DE18C64D0600016A49 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		ECC678DF18C64D0600016A49 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		ECC678E118C64D0600016A49 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		ECC678E218C64D0600016A49 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		ECC678E418C64D0600016A49 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		ECC678FE18C64D8300016A49 /* BFNavigationBarDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFNavigationBarDrawer.h; sourceTree = "<group>"; };
+		ECC678FF18C64D8300016A49 /* BFNavigationBarDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFNavigationBarDrawer.m; sourceTree = "<group>"; };
+		ECC6790418C6538C00016A49 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
+		ECC6790618C653CF00016A49 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		ECC6790818C653D400016A49 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,14 +82,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ECC678AA18C64CF500016A49 /* Frameworks */ = {
+		ECC678C718C64D0600016A49 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECC678AF18C64CF500016A49 /* XCTest.framework in Frameworks */,
-				ECC678B218C64CF500016A49 /* UIKit.framework in Frameworks */,
-				ECC678B518C64CF500016A49 /* libBFNavigationBarDrawer.a in Frameworks */,
-				ECC678B018C64CF500016A49 /* Foundation.framework in Frameworks */,
+				ECC6790918C653D400016A49 /* QuartzCore.framework in Frameworks */,
+				ECC6790718C653CF00016A49 /* CFNetwork.framework in Frameworks */,
+				ECC6790318C6512E00016A49 /* libBFNavigationBarDrawer.a in Frameworks */,
+				ECC678CD18C64D0600016A49 /* CoreGraphics.framework in Frameworks */,
+				ECC678CE18C64D0600016A49 /* UIKit.framework in Frameworks */,
+				ECC678CB18C64D0600016A49 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,7 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				ECC678A218C64CF500016A49 /* BFNavigationBarDrawer */,
-				ECC678B618C64CF500016A49 /* BFNavigationBarDrawerTests */,
+				ECC678CF18C64D0600016A49 /* Demo */,
 				ECC6789F18C64CF500016A49 /* Frameworks */,
 				ECC6789E18C64CF500016A49 /* Products */,
 			);
@@ -92,7 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				ECC6789D18C64CF500016A49 /* libBFNavigationBarDrawer.a */,
-				ECC678AD18C64CF500016A49 /* BFNavigationBarDrawerTests.xctest */,
+				ECC678CA18C64D0600016A49 /* Demo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -100,9 +120,12 @@
 		ECC6789F18C64CF500016A49 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ECC6790818C653D400016A49 /* QuartzCore.framework */,
+				ECC6790618C653CF00016A49 /* CFNetwork.framework */,
 				ECC678A018C64CF500016A49 /* Foundation.framework */,
 				ECC678AE18C64CF500016A49 /* XCTest.framework */,
 				ECC678B118C64CF500016A49 /* UIKit.framework */,
+				ECC678CC18C64D0600016A49 /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -110,9 +133,9 @@
 		ECC678A218C64CF500016A49 /* BFNavigationBarDrawer */ = {
 			isa = PBXGroup;
 			children = (
-				ECC678A518C64CF500016A49 /* BFNavigationBarDrawer.h */,
-				ECC678A718C64CF500016A49 /* BFNavigationBarDrawer.m */,
 				ECC678A318C64CF500016A49 /* Supporting Files */,
+				ECC678FE18C64D8300016A49 /* BFNavigationBarDrawer.h */,
+				ECC678FF18C64D8300016A49 /* BFNavigationBarDrawer.m */,
 			);
 			path = BFNavigationBarDrawer;
 			sourceTree = "<group>";
@@ -125,20 +148,30 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		ECC678B618C64CF500016A49 /* BFNavigationBarDrawerTests */ = {
+		ECC678CF18C64D0600016A49 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
-				ECC678BC18C64CF500016A49 /* BFNavigationBarDrawerTests.m */,
-				ECC678B718C64CF500016A49 /* Supporting Files */,
+				ECC678D818C64D0600016A49 /* AppDelegate.h */,
+				ECC678D918C64D0600016A49 /* AppDelegate.m */,
+				ECC678DB18C64D0600016A49 /* Main.storyboard */,
+				ECC678DE18C64D0600016A49 /* MasterViewController.h */,
+				ECC678DF18C64D0600016A49 /* MasterViewController.m */,
+				ECC678E118C64D0600016A49 /* DetailViewController.h */,
+				ECC678E218C64D0600016A49 /* DetailViewController.m */,
+				ECC678E418C64D0600016A49 /* Images.xcassets */,
+				ECC678D018C64D0600016A49 /* Supporting Files */,
 			);
-			path = BFNavigationBarDrawerTests;
+			path = Demo;
 			sourceTree = "<group>";
 		};
-		ECC678B718C64CF500016A49 /* Supporting Files */ = {
+		ECC678D018C64D0600016A49 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				ECC678B818C64CF500016A49 /* BFNavigationBarDrawerTests-Info.plist */,
-				ECC678B918C64CF500016A49 /* InfoPlist.strings */,
+				ECC6790418C6538C00016A49 /* Reveal.framework */,
+				ECC678D118C64D0600016A49 /* Demo-Info.plist */,
+				ECC678D218C64D0600016A49 /* InfoPlist.strings */,
+				ECC678D518C64D0600016A49 /* main.m */,
+				ECC678D718C64D0600016A49 /* Demo-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -163,23 +196,23 @@
 			productReference = ECC6789D18C64CF500016A49 /* libBFNavigationBarDrawer.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		ECC678AC18C64CF500016A49 /* BFNavigationBarDrawerTests */ = {
+		ECC678C918C64D0600016A49 /* Demo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ECC678C318C64CF500016A49 /* Build configuration list for PBXNativeTarget "BFNavigationBarDrawerTests" */;
+			buildConfigurationList = ECC678F818C64D0700016A49 /* Build configuration list for PBXNativeTarget "Demo" */;
 			buildPhases = (
-				ECC678A918C64CF500016A49 /* Sources */,
-				ECC678AA18C64CF500016A49 /* Frameworks */,
-				ECC678AB18C64CF500016A49 /* Resources */,
+				ECC678C618C64D0600016A49 /* Sources */,
+				ECC678C718C64D0600016A49 /* Frameworks */,
+				ECC678C818C64D0600016A49 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				ECC678B418C64CF500016A49 /* PBXTargetDependency */,
+				ECC6790218C6512A00016A49 /* PBXTargetDependency */,
 			);
-			name = BFNavigationBarDrawerTests;
-			productName = BFNavigationBarDrawerTests;
-			productReference = ECC678AD18C64CF500016A49 /* BFNavigationBarDrawerTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
+			name = Demo;
+			productName = Demo;
+			productReference = ECC678CA18C64D0600016A49 /* Demo.app */;
+			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
@@ -196,6 +229,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = ECC6789418C64CF500016A49;
 			productRefGroup = ECC6789E18C64CF500016A49 /* Products */;
@@ -203,17 +237,19 @@
 			projectRoot = "";
 			targets = (
 				ECC6789C18C64CF500016A49 /* BFNavigationBarDrawer */,
-				ECC678AC18C64CF500016A49 /* BFNavigationBarDrawerTests */,
+				ECC678C918C64D0600016A49 /* Demo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		ECC678AB18C64CF500016A49 /* Resources */ = {
+		ECC678C818C64D0600016A49 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECC678BB18C64CF500016A49 /* InfoPlist.strings in Resources */,
+				ECC678E518C64D0600016A49 /* Images.xcassets in Resources */,
+				ECC678D418C64D0600016A49 /* InfoPlist.strings in Resources */,
+				ECC678DD18C64D0600016A49 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,35 +260,46 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECC678A818C64CF500016A49 /* BFNavigationBarDrawer.m in Sources */,
+				ECC6790018C64D8300016A49 /* BFNavigationBarDrawer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ECC678A918C64CF500016A49 /* Sources */ = {
+		ECC678C618C64D0600016A49 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECC678BD18C64CF500016A49 /* BFNavigationBarDrawerTests.m in Sources */,
+				ECC678DA18C64D0600016A49 /* AppDelegate.m in Sources */,
+				ECC678E018C64D0600016A49 /* MasterViewController.m in Sources */,
+				ECC678D618C64D0600016A49 /* main.m in Sources */,
+				ECC678E318C64D0600016A49 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		ECC678B418C64CF500016A49 /* PBXTargetDependency */ = {
+		ECC6790218C6512A00016A49 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = ECC6789C18C64CF500016A49 /* BFNavigationBarDrawer */;
-			targetProxy = ECC678B318C64CF500016A49 /* PBXContainerItemProxy */;
+			targetProxy = ECC6790118C6512A00016A49 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		ECC678B918C64CF500016A49 /* InfoPlist.strings */ = {
+		ECC678D218C64D0600016A49 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				ECC678BA18C64CF500016A49 /* en */,
+				ECC678D318C64D0600016A49 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		ECC678DB18C64D0600016A49 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ECC678DC18C64D0600016A49 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -352,41 +399,57 @@
 			};
 			name = Release;
 		};
-		ECC678C418C64CF500016A49 /* Debug */ = {
+		ECC678F918C64D0700016A49 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					/Users/Bazsi/Desktop/BFNavigationBarDrawer/Demo,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BFNavigationBarDrawer/BFNavigationBarDrawer-Prefix.pch";
+				GCC_PREFIX_HEADER = "Demo/Demo-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "BFNavigationBarDrawerTests/BFNavigationBarDrawerTests-Info.plist";
+				INFOPLIST_FILE = "Demo/Demo-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					Reveal,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = xctest;
+				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
-		ECC678C518C64CF500016A49 /* Release */ = {
+		ECC678FA18C64D0700016A49 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					/Users/Bazsi/Desktop/BFNavigationBarDrawer/Demo,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BFNavigationBarDrawer/BFNavigationBarDrawer-Prefix.pch";
-				INFOPLIST_FILE = "BFNavigationBarDrawerTests/BFNavigationBarDrawerTests-Info.plist";
+				GCC_PREFIX_HEADER = "Demo/Demo-Prefix.pch";
+				INFOPLIST_FILE = "Demo/Demo-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					Reveal,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = xctest;
+				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};
@@ -410,11 +473,11 @@
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		ECC678C318C64CF500016A49 /* Build configuration list for PBXNativeTarget "BFNavigationBarDrawerTests" */ = {
+		ECC678F818C64D0700016A49 /* Build configuration list for PBXNativeTarget "Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				ECC678C418C64CF500016A49 /* Debug */,
-				ECC678C518C64CF500016A49 /* Release */,
+				ECC678F918C64D0700016A49 /* Debug */,
+				ECC678FA18C64D0700016A49 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
