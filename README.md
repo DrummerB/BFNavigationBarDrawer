@@ -1,4 +1,6 @@
 # BFNavigationBarDrawer
+<br>
+![Imgur](http://i.imgur.com/DjzbAXA.png)
 
 Summary
 -------
