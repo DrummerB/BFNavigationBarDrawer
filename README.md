@@ -41,7 +41,7 @@ To hide it:
 Notes
 ------------
 
-I only tested with iOS 7. It doesn't make a lot of sense to use it with earlied iOS versions, as navigation bars used to be opaque and you could simply resize and scroll view to make room for an additional header bar.
+I only tested with iOS 7. It doesn't make a lot of sense to use it with earlier iOS versions, as navigation bars used to be opaque and you could simply resize the scroll view to make room for an additional header bar.
 
 License
 -------
