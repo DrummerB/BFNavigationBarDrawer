@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
     :tag =>  s.version.to_s
   }
 
-  s.ios.source_files  = 'BFNavigationBarDrawer/*.{h.m}'
+  s.source_files  = '/BFNavigationBarDrawer/**/*.{h,m}'
   
   s.requires_arc = true
 
