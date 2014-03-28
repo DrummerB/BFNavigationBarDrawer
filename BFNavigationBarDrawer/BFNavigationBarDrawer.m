@@ -96,6 +96,7 @@
 	UIEdgeInsets insets = _scrollView.contentInset;
 	insets.top += height;
 	_scrollView.contentInset = insets;
+	_scrollView.scrollIndicatorInsets = insets;
 	_scrollView.contentOffset = CGPointMake(_scrollView.contentOffset.x, _scrollView.contentOffset.y + fix);
 	
 	void (^animations)() = ^void() {
@@ -138,6 +139,7 @@
 	UIEdgeInsets insets = _scrollView.contentInset;
 	insets.top -= height;
 	_scrollView.contentInset = insets;
+	_scrollView.scrollIndicatorInsets = insets;
 	_scrollView.contentOffset = CGPointMake(_scrollView.contentOffset.x, _scrollView.contentOffset.y - topFix);
 	
 	void (^animations)() = ^void() {
