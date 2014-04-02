@@ -36,6 +36,26 @@
     return self;
 }
 
+- (id)initWithCoder:(NSCoder *)decoder {
+    if (self = [super initWithCoder:decoder]) {
+        // BFNavigationBarDrawbar is a UIToolbar subclass to have the same design as regular bars and to simply
+        // be able to add UIBarButtonItems (a navigation bar is designed to have a title in the middle and more
+		// difficult to use as a drawer). UIToolbars don't have a border on the bottom side, so we have to add one.
+		UIView *lineView = [[UIView alloc] init];
+		lineView.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.3];
+		lineView.translatesAutoresizingMaskIntoConstraints = NO;
+		[self addSubview:lineView];
+		
+		NSDictionary *views = @{@"line" : lineView};
+		NSDictionary *metrics = @{@"width" : @(1.0 / [UIScreen mainScreen].scale)}; // 1 physical pixel border high on any screen.
+		[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[line]|" options:0 metrics:metrics views:views]];
+		[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[line(width)]|" options:0 metrics:metrics views:views]];
+        
+		_visible = NO;
+    }
+    return self;
+}
+
 - (id)init
 {
     self = [self initWithFrame:CGRectMake(0, 0, 320, 44)];
