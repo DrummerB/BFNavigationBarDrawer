@@ -16,7 +16,7 @@ Instructions
 
 Create a Podfile, if you don't have one already. Add the following line.
 
-    pod 'BFNavigationBarDrawer', :git => 'https://github.com/DrummerB/BFNavigationBarDrawer'
+    pod 'BFNavigationBarDrawer'
     
 Run the following command.
 
