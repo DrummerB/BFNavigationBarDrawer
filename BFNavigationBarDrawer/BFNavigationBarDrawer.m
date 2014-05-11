@@ -200,7 +200,7 @@
 	CGFloat height = self.frame.size.height;
 	CGFloat visible = _scrollView.bounds.size.height - _scrollView.contentInset.top - _scrollView.contentInset.bottom;
 	CGFloat fix = height;
-	if (visible <= _scrollView.contentSize.height) {
+	if (visible <= _scrollView.contentSize.height - height) {
 		CGFloat bottom = -_scrollView.contentOffset.y + _scrollView.contentSize.height;
 		CGFloat diff = bottom - _scrollView.bounds.size.height + _scrollView.contentInset.bottom;
 		fix = MAX(0.0, MIN(height, diff));
