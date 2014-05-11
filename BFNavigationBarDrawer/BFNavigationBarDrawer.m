@@ -63,20 +63,6 @@
 	}
 }
 
-- (CGRect)finalFrameForNavigationBar:(UINavigationBar *)bar {
-	CGRect rect = CGRectMake(bar.frame.origin.x,
-							 bar.frame.origin.y + bar.frame.size.height,
-							 bar.frame.size.width,
-							 self.frame.size.height);
-	return rect;
-}
-
-- (CGRect)initialFrameForNavigationBar:(UINavigationBar *)bar {
-	CGRect rect = [self finalFrameForNavigationBar:bar];
-	rect.origin.y -= rect.size.height;
-	return rect;
-}
-
 - (void)setupConstraintsWithNavigationBar:(UINavigationBar *)bar {
 	
 	NSLayoutConstraint *constraint;
