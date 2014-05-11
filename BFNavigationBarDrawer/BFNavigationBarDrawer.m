@@ -121,6 +121,20 @@
 
 - (void)showFromNavigationBar:(UINavigationBar *)bar animated:(BOOL)animated {
 	
+	if (bar == parentBar) {
+		// Showing from the same navigation bar again? Ignore.
+		return;
+	}
+	
+	if (_visible) {
+		// Showing from a different navigation bar, while we're visible already?
+		// Hide at the original location, unanimated. This will result in an
+		// undesirable, unanimated jump of the scroll views, so this should be
+		// avoided. Hide the drawer first, before showing it at an other location,
+		// or use a different instance.
+		[self hideAnimated:NO];
+	}
+	
 	parentBar = bar;
 	if (!parentBar) {
 		NSLog(@"Cannot display navigation bar from nil.");
@@ -159,12 +173,12 @@
 	
 	[self constrainBelowNavigationBar:bar];
 	void (^animations)() = ^void() {
+		_visible = YES;
 		[self.superview layoutIfNeeded];
 		_scrollView.contentOffset = CGPointMake(_scrollView.contentOffset.x, _scrollView.contentOffset.y - height);
 	};
 	
 	void (^completion)(BOOL) = ^void(BOOL finished) {
-		_visible = YES;
 	};
 	
 	if (animated) {
@@ -173,7 +187,6 @@
 		animations();
 		completion(YES);
 	}
-	
 }
 
 - (void)hideAnimated:(BOOL)animated {
@@ -210,6 +223,7 @@
 	
 	void (^completion)(BOOL) = ^void(BOOL finished) {
 		_visible = NO;
+		parentBar = nil;
 		[self removeFromSuperview];
 	};
 	
