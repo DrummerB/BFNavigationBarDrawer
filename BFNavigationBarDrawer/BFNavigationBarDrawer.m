@@ -12,6 +12,7 @@
 
 @implementation BFNavigationBarDrawer {
 	UINavigationBar *parentBar;
+	NSLayoutConstraint *verticalDrawerConstraint;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -50,6 +51,8 @@
 	[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[line]|" options:0 metrics:metrics views:views]];
 	[self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[line(width)]|" options:0 metrics:metrics views:views]];
 	
+	self.translatesAutoresizingMaskIntoConstraints = NO;
+	
 	_visible = NO;
 }
 
@@ -74,6 +77,62 @@
 	return rect;
 }
 
+- (void)setupConstraintsWithNavigationBar:(UINavigationBar *)bar {
+	
+	NSLayoutConstraint *constraint;
+	constraint = [NSLayoutConstraint constraintWithItem:self
+											  attribute:NSLayoutAttributeLeft
+											  relatedBy:NSLayoutRelationEqual
+												 toItem:bar
+											  attribute:NSLayoutAttributeLeft
+											 multiplier:1
+											   constant:0];
+	[self.superview addConstraint:constraint];
+	
+	constraint = [NSLayoutConstraint constraintWithItem:self
+											  attribute:NSLayoutAttributeRight
+											  relatedBy:NSLayoutRelationEqual
+												 toItem:bar
+											  attribute:NSLayoutAttributeRight
+											 multiplier:1
+											   constant:0];
+	[self.superview addConstraint:constraint];
+	
+	constraint = [NSLayoutConstraint constraintWithItem:self
+											  attribute:NSLayoutAttributeHeight
+											  relatedBy:NSLayoutRelationEqual
+												 toItem:nil
+											  attribute:NSLayoutAttributeNotAnAttribute
+											 multiplier:1
+											   constant:44];
+	[self addConstraint:constraint];
+}
+
+- (void)constrainBehindNavigationBar:(UINavigationBar *)bar {
+	[self.superview removeConstraint:verticalDrawerConstraint];
+	verticalDrawerConstraint = [NSLayoutConstraint constraintWithItem:self
+															attribute:NSLayoutAttributeBottom
+															relatedBy:NSLayoutRelationEqual
+															   toItem:bar
+															attribute:NSLayoutAttributeBottom
+														   multiplier:1
+															 constant:0];
+	[self.superview addConstraint:verticalDrawerConstraint];
+}
+
+
+- (void)constrainBelowNavigationBar:(UINavigationBar *)bar {
+	[self.superview removeConstraint:verticalDrawerConstraint];
+	verticalDrawerConstraint = [NSLayoutConstraint constraintWithItem:self
+															attribute:NSLayoutAttributeTop
+															relatedBy:NSLayoutRelationEqual
+															   toItem:bar
+															attribute:NSLayoutAttributeBottom
+														   multiplier:1
+															 constant:0];
+	[self.superview addConstraint:verticalDrawerConstraint];
+}
+
 - (void)showFromNavigationBar:(UINavigationBar *)bar animated:(BOOL)animated {
 	
 	parentBar = bar;
@@ -83,11 +142,13 @@
 	}
 	
 	[bar.superview insertSubview:self belowSubview:bar];
+	[self setupConstraintsWithNavigationBar:bar];
 	
 	// Place the drawer behind the navigation bar at the beginning of the animation.
 	if (animated) {
-		self.frame = [self initialFrameForNavigationBar:bar];
+		[self constrainBehindNavigationBar:bar];
 	}
+	[self.superview layoutIfNeeded];
 	
 	// This is a bit messy. Because navigation and toolbars are now translucent, we can't just resize the afftected scroll view
 	// to make place for the drawer. Instead we have to change the contentInset property of the scroll view. Increasing the
@@ -110,8 +171,9 @@
 	_scrollView.scrollIndicatorInsets = insets;
 	_scrollView.contentOffset = CGPointMake(_scrollView.contentOffset.x, _scrollView.contentOffset.y + fix);
 	
+	[self constrainBelowNavigationBar:bar];
 	void (^animations)() = ^void() {
-		self.frame = [self finalFrameForNavigationBar:bar];
+		[self.superview layoutIfNeeded];
 		_scrollView.contentOffset = CGPointMake(_scrollView.contentOffset.x, _scrollView.contentOffset.y - height);
 	};
 	
@@ -153,8 +215,9 @@
 	_scrollView.scrollIndicatorInsets = insets;
 	_scrollView.contentOffset = CGPointMake(_scrollView.contentOffset.x, _scrollView.contentOffset.y - topFix);
 	
+	[self constrainBehindNavigationBar:parentBar];
 	void (^animations)() = ^void() {
-		self.frame = [self initialFrameForNavigationBar:parentBar];
+		[self.superview layoutIfNeeded];
 		_scrollView.contentOffset = CGPointMake(_scrollView.contentOffset.x, _scrollView.contentOffset.y + fix);
 		
 	};
