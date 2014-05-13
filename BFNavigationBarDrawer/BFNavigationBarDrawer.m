@@ -10,7 +10,15 @@
 
 #define kAnimationDuration 0.3
 
+typedef NS_ENUM(NSInteger, BFNavigationBarDrawerState) {
+	BFNavigationBarDrawerStateHidden,	// The drawer is currently hidden behind the navigation bar, or not added to a view hierarchy yet.
+	BFNavigationBarDrawerStateShowing,	// The drawer is sliding onto screen, from below the navigation bar.
+	BFNavigationBarDrawerStateShown,	// The drawer is visible below the navigation bar and is not currently animating.
+	BFNavigationBarDrawerStateHiding,	// The drawer is sliding off screen, back under the navigation drawer.
+};
+
 @implementation BFNavigationBarDrawer {
+	BFNavigationBarDrawerState state;
 	UINavigationBar *parentBar;
 	NSLayoutConstraint *verticalDrawerConstraint;
 }
@@ -54,6 +62,7 @@
 	self.translatesAutoresizingMaskIntoConstraints = NO;
 	
 	_visible = NO;
+	state = BFNavigationBarDrawerStateHidden;
 }
 
 - (void)setScrollView:(UIScrollView *)scrollView {
@@ -64,7 +73,6 @@
 }
 
 - (void)setupConstraintsWithNavigationBar:(UINavigationBar *)bar {
-	
 	NSLayoutConstraint *constraint;
 	constraint = [NSLayoutConstraint constraintWithItem:self
 											  attribute:NSLayoutAttributeLeft
@@ -121,31 +129,28 @@
 
 - (void)showFromNavigationBar:(UINavigationBar *)bar animated:(BOOL)animated {
 	
-	if (bar == parentBar) {
-		// Showing from the same navigation bar again? Ignore.
+	if (bar == nil) {
+		NSLog(@"Cannot display navigation bar from nil.");
 		return;
 	}
 	
-	if (_visible) {
+	if (state == BFNavigationBarDrawerStateShown || state == BFNavigationBarDrawerStateShowing) {
 		// Showing from a different navigation bar, while we're visible already?
 		// Hide at the original location, unanimated. This will result in an
 		// undesirable, unanimated jump of the scroll views, so this should be
 		// avoided. Hide the drawer first, before showing it at an other location,
 		// or use a different instance.
+		NSLog(@"BFNavigationBarDrawer: Inconsistency warning. Drawer is already showing or is shown.");
 		[self hideAnimated:NO];
 	}
 	
 	parentBar = bar;
-	if (!parentBar) {
-		NSLog(@"Cannot display navigation bar from nil.");
-		return;
-	}
 	
 	[bar.superview insertSubview:self belowSubview:bar];
 	[self setupConstraintsWithNavigationBar:bar];
 	
 	// Place the drawer behind the navigation bar at the beginning of the animation.
-	if (animated) {
+	if (animated && state == BFNavigationBarDrawerStateHidden) {
 		[self constrainBehindNavigationBar:bar];
 	}
 	[self.superview layoutIfNeeded];
@@ -173,16 +178,21 @@
 	
 	[self constrainBelowNavigationBar:bar];
 	void (^animations)() = ^void() {
-		_visible = YES;
+		state = BFNavigationBarDrawerStateShowing;
 		[self.superview layoutIfNeeded];
 		_scrollView.contentOffset = CGPointMake(_scrollView.contentOffset.x, _scrollView.contentOffset.y - height);
 	};
 	
 	void (^completion)(BOOL) = ^void(BOOL finished) {
+		if (state == BFNavigationBarDrawerStateShowing) {
+			// Only change the state to shown, if the current state is showing. It could also be hiding, if hideAnimated: was
+			// called before the showing animatation completed. In that case we would incorrectly set the state to shown.
+			state = BFNavigationBarDrawerStateShown;
+		}
 	};
 	
 	if (animated) {
-		[UIView animateWithDuration:kAnimationDuration animations:animations completion:completion];
+		[UIView animateWithDuration:kAnimationDuration delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:animations completion:completion];
 	} else {
 		animations();
 		completion(YES);
@@ -190,8 +200,14 @@
 }
 
 - (void)hideAnimated:(BOOL)animated {
+	
+	if (state == BFNavigationBarDrawerStateHiding || state == BFNavigationBarDrawerStateHidden) {
+		NSLog(@"BFNavigationBarDrawer: Inconsistency warning. Drawer is already hiding or is hidden.");
+		return;
+	}
+	
 	if (!parentBar) {
-		NSLog(@"Navigation bar should not be released while drawer is visible.");
+		NSLog(@"BFNavigationBarDrawer: Navigation bar should not be released while drawer is visible.");
 		return;
 	}
 	
@@ -215,20 +231,26 @@
 	_scrollView.contentOffset = CGPointMake(_scrollView.contentOffset.x, _scrollView.contentOffset.y - topFix);
 	
 	[self constrainBehindNavigationBar:parentBar];
+	
 	void (^animations)() = ^void() {
+		state = BFNavigationBarDrawerStateHiding;
 		[self.superview layoutIfNeeded];
 		_scrollView.contentOffset = CGPointMake(_scrollView.contentOffset.x, _scrollView.contentOffset.y + fix);
 		
 	};
 	
 	void (^completion)(BOOL) = ^void(BOOL finished) {
-		_visible = NO;
-		parentBar = nil;
-		[self removeFromSuperview];
+		if (state == BFNavigationBarDrawerStateHiding) {
+			// Only remove the drawer and update the state, if the current state is hiding. It could also be showing, if the showFromNavigationBar:animated:
+			// method was called again, before the hiding animation completed. In that case we don't want to remove the drawer of course.
+			parentBar = nil;
+			[self removeFromSuperview];
+			state = BFNavigationBarDrawerStateHidden;
+		}
 	};
 	
 	if (animated) {
-		[UIView animateWithDuration:kAnimationDuration animations:animations completion:completion];
+		[UIView animateWithDuration:kAnimationDuration delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:animations completion:completion];
 	} else {
 		animations();
 		completion(YES);
