@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name        = 'BFNavigationBarDrawer'
-  s.version     = '1.0.1'
+  s.version     = '1.0.2'
   s.platform    = :ios
   s.license     = { :type => 'BSD', :file => 'LICENSE' }
   s.homepage    = 'https://github.com/DrummerB/BFNavigationBarDrawer'

@@ -61,7 +61,6 @@ typedef NS_ENUM(NSInteger, BFNavigationBarDrawerState) {
 	
 	self.translatesAutoresizingMaskIntoConstraints = NO;
 	
-	_visible = NO;
 	state = BFNavigationBarDrawerStateHidden;
 }
 
@@ -70,6 +69,10 @@ typedef NS_ENUM(NSInteger, BFNavigationBarDrawerState) {
 		_scrollView = scrollView;
 
 	}
+}
+
+- (BOOL)isVisible {
+	return state != BFNavigationBarDrawerStateHidden;
 }
 
 - (void)setupConstraintsWithNavigationBar:(UINavigationBar *)bar {
