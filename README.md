@@ -1,5 +1,10 @@
 # BFNavigationBarDrawer
 
+[![Pod Version](http://img.shields.io/cocoapods/v/BFNavigationBarDrawer.svg?style=flat)](https://github.com/DrummerB/BFNavigationBarDrawer)
+[![Pod Platform](http://img.shields.io/cocoapods/p/BFNavigationBarDrawer.svg?style=flat)](https://github.com/DrummerB/BFNavigationBarDrawer)
+[![Pod License](http://img.shields.io/cocoapods/l/BFNavigationBarDrawer.svg?style=flat)](http://opensource.org/licenses/BSD-3-Clause)
+[![Dependency Status](https://www.versioneye.com/objective-c/BFNavigationBarDrawer/badge.svg?style=flat)](https://www.versioneye.com/objective-c/BFNavigationBarDrawer)
+
 
 | *With* automatic scroll view adjustment | *Without* scroll view adjustment |
 | ------------- | -----|
