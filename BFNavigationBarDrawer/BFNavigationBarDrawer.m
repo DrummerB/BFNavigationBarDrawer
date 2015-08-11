@@ -101,7 +101,7 @@ typedef NS_ENUM(NSInteger, BFNavigationBarDrawerState) {
 												 toItem:nil
 											  attribute:NSLayoutAttributeNotAnAttribute
 											 multiplier:1
-											   constant:44];
+											   constant:self.frame.size.height];
 	[self addConstraint:constraint];
 }
 
@@ -234,13 +234,16 @@ typedef NS_ENUM(NSInteger, BFNavigationBarDrawerState) {
 	_scrollView.contentOffset = CGPointMake(_scrollView.contentOffset.x, _scrollView.contentOffset.y - topFix);
 	
 	[self constrainBehindNavigationBar:parentBar];
-	
-	void (^animations)() = ^void() {
-		state = BFNavigationBarDrawerStateHiding;
-		[self.superview layoutIfNeeded];
-		_scrollView.contentOffset = CGPointMake(_scrollView.contentOffset.x, _scrollView.contentOffset.y + fix);
-		
-	};
+    verticalDrawerConstraint.constant = height;
+    [self.superview layoutIfNeeded];
+    
+    void (^animations)() = ^void() {
+        state = BFNavigationBarDrawerStateHiding;
+        verticalDrawerConstraint.constant = verticalDrawerConstraint.constant - height;
+        [self.superview layoutIfNeeded];
+        _scrollView.contentOffset = CGPointMake(_scrollView.contentOffset.x, _scrollView.contentOffset.y + fix);
+    };
+
 	
 	void (^completion)(BOOL) = ^void(BOOL finished) {
 		if (state == BFNavigationBarDrawerStateHiding) {
