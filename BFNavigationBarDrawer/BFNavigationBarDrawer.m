@@ -80,7 +80,7 @@ typedef NS_ENUM(NSInteger, BFNavigationBarDrawerState) {
 	constraint = [NSLayoutConstraint constraintWithItem:self
 											  attribute:NSLayoutAttributeLeft
 											  relatedBy:NSLayoutRelationEqual
-												 toItem:bar
+												 toItem:bar.superview
 											  attribute:NSLayoutAttributeLeft
 											 multiplier:1
 											   constant:0];
@@ -89,7 +89,7 @@ typedef NS_ENUM(NSInteger, BFNavigationBarDrawerState) {
 	constraint = [NSLayoutConstraint constraintWithItem:self
 											  attribute:NSLayoutAttributeRight
 											  relatedBy:NSLayoutRelationEqual
-												 toItem:bar
+												 toItem:bar.superview
 											  attribute:NSLayoutAttributeRight
 											 multiplier:1
 											   constant:0];
